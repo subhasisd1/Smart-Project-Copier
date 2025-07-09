@@ -317,6 +317,7 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         new_state = not current_state
         self.update_total_selected_size()
 
+
         def set_check_state(n, is_checked):
             if is_checked:
                 self.checked_items.add(n)
@@ -357,6 +358,7 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         self.update_parent_states(parent)
 
     def select_all(self):
+
         for node in self.tree_nodes:
             self.tree.item(node, image=self.checkbox_images["checked"])
             self.checked_items.add(node)
@@ -432,11 +434,9 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
 
     def copy_selected(self):
         dest = self.dest_entry.get().strip()
-        # dest_root = os.path.join(dest, os.path.basename(self.source_dir.rstrip("/\\")))
         dest_root = dest  # just the destination folder itself
         logger = CopyLogger(dest_root)
         os.makedirs(dest_root, exist_ok=True)
-
 
         selected_nodes = list(self.checked_items)
         total_items = len(selected_nodes)
@@ -466,6 +466,9 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
 
         speed_label = ttk.Label(popup, text="Speed: 0 MB/s")
         speed_label.pack()
+
+        percentage_label = ttk.Label(popup, text="0%", font=("Segoe UI", 10, "bold"))
+        percentage_label.pack(pady=2)
 
         # Details panel (hidden initially)
         log_frame = ttk.Frame(popup)
@@ -503,9 +506,13 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
                 dst_path = os.path.join(dest_root, os.path.basename(matching_root), rel_path)
 
                 # Update popup info
-                self.after(0, lambda rp=rel_path, idx=i: file_label.config(
-                    text=f"Copying ({idx}/{total_items}): {rp[:70]}"))
-                progress["value"] = i
+                percent = (i / total_items) * 100
+                self.after(0, lambda rp=rel_path, idx=i, p=percent: [
+                    file_label.config(text=f"Copying ({idx}/{total_items}): {rp[:70]}"),
+                    progress.config(value=idx),
+                    percentage_label.config(text=f"{p:.1f}%"),
+                    popup.title(f"Copying Files - {p:.1f}%")
+                ])
 
                 try:
                     if os.path.isdir(src_path):
