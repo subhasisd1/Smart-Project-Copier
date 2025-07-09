@@ -151,7 +151,8 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         x_scroll.config(command=self.tree.xview)
 
         self.tree.bind("<Button-1>", self.on_tree_click)
-        # self.tree.bind("<<TreeviewOpen>>", self.on_tree_expand)
+        self.tree.bind("<<TreeviewOpen>>", self.on_tree_expand)
+
          # ✅ Enable drag and drop on the Treeview widget
         self.tree.drop_target_register(DND_FILES)
         self.tree.dnd_bind("<<Drop>>", self.handle_drop)
@@ -314,6 +315,7 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
     def toggle_checkbox(self, node):
         current_state = node in self.checked_items
         new_state = not current_state
+        self.update_total_selected_size()
 
         def set_check_state(n, is_checked):
             if is_checked:
@@ -360,11 +362,15 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
             self.checked_items.add(node)
             self.partial_checked_items.discard(node)
 
+        self.update_total_selected_size()
+
     def select_none(self):
         for node in self.tree_nodes:
             self.tree.item(node, image=self.checkbox_images["unchecked"])
             self.checked_items.discard(node)
             self.partial_checked_items.discard(node)
+        self.update_total_selected_size()
+
 
     def filter_files(self, event):
         search_term = self.search_entry.get().strip().lower()
@@ -410,10 +416,17 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         if not  self.dest_entry.get().strip():
             messagebox.showwarning("Missing Path", "Please select source and destination folders.")
             return
+        
         if not hasattr(self, 'source_dirs') or not self.source_dirs:
             messagebox.showwarning("Missing Source", "Please select at least one source folder.")
             return
         
+        # dest_path = os.path.normpath(self.dest_entry.get().strip())
+        # for src in self.source_dirs:
+        #     if os.path.commonpath([os.path.normpath(src), dest_path]) == os.path.normpath(src):
+        #         messagebox.showerror("Invalid Destination", f"Destination '{dest_path}' cannot be inside source folder '{src}'")
+        #         return
+            
         self.start_btn.config(state="disabled")
         threading.Thread(target=self.copy_selected, daemon=True).start()
 
@@ -503,6 +516,7 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
                         logger.log_success(os.path.join(os.path.basename(matching_root), rel_path))
                         copied_bytes += os.path.getsize(src_path)
                 except Exception as e:
+                    print("Hey is this the error", e)
                     self.after(0, lambda: log_text.insert(tk.END, f"[ERROR] {src_path} -> {e}\n"))
                     logger.log_error(os.path.join(os.path.basename(matching_root), rel_path), str(e))
                 else:
@@ -569,6 +583,38 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
 
         ttk.Button(popup, text="Save", command=save_and_close).pack(pady=(5, 15))
     
+    def on_tree_expand(self, event):
+        node = self.tree.focus()
+        children = self.tree.get_children(node)
+        if len(children) == 1 and self.tree.item(children[0], "text") == "":
+            self.tree.delete(children[0])  # remove dummy
+
+            folder_path = self.tree_nodes.get(node)
+            if not folder_path or not os.path.isdir(folder_path):
+                return
+
+            try:
+                for child_name in sorted(os.listdir(folder_path)):
+                    child_path = os.path.join(folder_path, child_name)
+                    self.insert_node(node, child_path)
+            except Exception as e:
+                print("Expand error:", e)
+
+    def update_total_selected_size(self):
+        total = 0
+        for node in self.checked_items:
+            path = self.tree_nodes[node]
+            try:
+                if os.path.isfile(path):
+                    total += os.path.getsize(path)
+                elif os.path.isdir(path):
+                    total += self.get_folder_size(path)
+            except:
+                continue
+        size_str = self.format_size(total)
+        self.total_size_label.config(text=f"Total Size: {size_str}")
+
+
 def choose_multiple_folders():
         # Hack to allow folder selection via ctypes
         ctypes.windll.user32.MessageBoxW(0, "Use Ctrl/Shift to select multiple folders", "Select Folders", 1)
