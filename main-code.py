@@ -429,7 +429,30 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
                 if os.path.isdir(path) and not parent:
                     top_level_folders.append((os.path.basename(path), path))
 
-            self.zip_manager.zip_selected(top_level_folders, self.dest_entry.get().strip())
+            dest_dir = self.dest_entry.get().strip()
+
+            if not top_level_folders:
+                messagebox.showwarning("Nothing to Zip", "Please select at least one top-level folder.")
+                return
+
+            if len(top_level_folders) == 1:
+                zip_name = f"{top_level_folders[0][0]}.zip"
+            else:
+                all_names = [name for (name, _) in top_level_folders]
+                name_prefix = os.path.commonprefix(all_names).rstrip("-_")
+
+                all_paths = [path for (_, path) in top_level_folders]
+                common_root = os.path.commonpath(all_paths)
+                parent_name = os.path.basename(common_root)
+
+                if len(set(os.path.dirname(p) for (_, p) in top_level_folders)) == 1:
+                    zip_name = f"{parent_name}.zip" if parent_name else "smart-project.zip"
+                elif name_prefix:
+                    zip_name = f"{name_prefix}.zip"
+                else:
+                    zip_name = "smart-project.zip"
+
+            self.zip_manager.zip_selected(top_level_folders, dest_dir, zip_name)
             return
         
         self.start_btn.config(state="disabled")
