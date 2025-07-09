@@ -11,6 +11,7 @@ from tkinterdnd2 import DND_FILES, TkinterDnD
 
 from copy_logger import CopyLogger
 from context_menu_manager import ContextMenuManager
+from zip_manager import ZipManager
 
 class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
     def __init__(self):
@@ -19,7 +20,8 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         # self.geometry("1100x700")
         self.state("zoomed")
         self.configure(bg="#f5f5f5")
-        
+        self.zip_manager = ZipManager(self)
+
         try:
             self.iconbitmap("copy_icon.ico")
         except:
@@ -180,6 +182,9 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         self.start_btn = ttk.Button(bottom_frame, text="🚀 Start Copy", command=self.start_copy)
         self.start_btn.pack(side="right")
 
+        self.zip_mode = tk.BooleanVar(value=False)
+        ttk.Checkbutton(bottom_frame, text="Zip instead of Copy", variable=self.zip_mode).pack(side="right", padx=10)
+        
         path_frame.columnconfigure(1, weight=1)
         tree_container.columnconfigure(0, weight=1)
         tree_container.rowconfigure(0, weight=1)
@@ -241,7 +246,7 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         name = os.path.basename(path)
         try:
             size = os.path.getsize(path) if os.path.isfile(path) else (
-                self.get_folder_size(path) if is_root else 0
+                self.get_folder_size_excluding(path) if is_root else 0
             )
             size_str = self.format_size(size)
             date = datetime.fromtimestamp(os.path.getmtime(path)).strftime("%Y-%m-%d %H:%M")
@@ -285,16 +290,6 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         self.progress.stop()
         self.progress.config(mode="determinate", value=0)
         self.start_btn.config(state="normal")
-
-    def get_folder_size(self, path):
-        total_size = 0
-        for dirpath, _, filenames in os.walk(path):
-            for f in filenames:
-                try:
-                    total_size += os.path.getsize(os.path.join(dirpath, f))
-                except:
-                    continue
-        return total_size
 
     def format_size(self, size):
         for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
@@ -422,13 +417,21 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         if not hasattr(self, 'source_dirs') or not self.source_dirs:
             messagebox.showwarning("Missing Source", "Please select at least one source folder.")
             return
+                    
+        if self.zip_mode.get():
+            self.start_btn.config(state="disabled")
+
+            # Prepare top-level selected folders
+            top_level_folders = []
+            for node in self.checked_items:
+                path = self.tree_nodes[node]
+                parent = self.tree.parent(node)
+                if os.path.isdir(path) and not parent:
+                    top_level_folders.append((os.path.basename(path), path))
+
+            self.zip_manager.zip_selected(top_level_folders, self.dest_entry.get().strip())
+            return
         
-        # dest_path = os.path.normpath(self.dest_entry.get().strip())
-        # for src in self.source_dirs:
-        #     if os.path.commonpath([os.path.normpath(src), dest_path]) == os.path.normpath(src):
-        #         messagebox.showerror("Invalid Destination", f"Destination '{dest_path}' cannot be inside source folder '{src}'")
-        #         return
-            
         self.start_btn.config(state="disabled")
         threading.Thread(target=self.copy_selected, daemon=True).start()
 
@@ -615,7 +618,7 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
                 if os.path.isfile(path):
                     total += os.path.getsize(path)
                 elif os.path.isdir(path):
-                    total += self.get_folder_size(path)
+                    total += self.get_folder_size_excluding(path)
             except:
                 continue
         size_str = self.format_size(total)
