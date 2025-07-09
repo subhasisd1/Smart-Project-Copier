@@ -412,10 +412,12 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
         # if not self.source_dir or not self.dest_entry.get().strip():
         if not  self.dest_entry.get().strip():
             messagebox.showwarning("Missing Path", "Please select source and destination folders.")
+            self.start_btn.config(state="normal")  # ✅ Add this line
             return
         
         if not hasattr(self, 'source_dirs') or not self.source_dirs:
             messagebox.showwarning("Missing Source", "Please select at least one source folder.")
+            self.start_btn.config(state="normal")  # ✅ Add this line
             return
                     
         if self.zip_mode.get():
@@ -433,6 +435,7 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
 
             if not top_level_folders:
                 messagebox.showwarning("Nothing to Zip", "Please select at least one top-level folder.")
+                self.start_btn.config(state="normal")  # ✅ Add this line
                 return
 
             if len(top_level_folders) == 1:
@@ -453,6 +456,7 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
                     zip_name = "smart-project.zip"
 
             self.zip_manager.zip_selected(top_level_folders, dest_dir, zip_name)
+            self.start_btn.config(state="normal")  # ✅ Add this line
             return
         
         self.start_btn.config(state="disabled")
