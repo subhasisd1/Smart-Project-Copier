@@ -1,97 +1,102 @@
-[OK] travel-explorer-spa\.git\hooks\pre-receive.sample
-[ERROR] travel-explorer-spa\.git\objects\e9\558405fdcc02f12d757acb308e02937a7444f1 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\e9\\558405fdcc02f12d757acb308e02937a7444f1'
-[OK] travel-explorer-spa\src\assets\upload\dress.jpg
-[OK] travel-explorer-spa\src\components\QueryForm.vue
-[OK] travel-explorer-spa\src\assets\main.css
-[ERROR] travel-explorer-spa\.git\objects\99\bf960e214e73e5513e054ac34c331b6d4b1a46 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\99\\bf960e214e73e5513e054ac34c331b6d4b1a46'
-[OK] travel-explorer-spa\.git\config
-[OK] travel-explorer-spa\.git\hooks\pre-applypatch.sample
 [OK] travel-explorer-spa\src\assets\images\paris.jpg
-[ERROR] travel-explorer-spa\.git\objects\91\0e297e0f53483455d2aa432887c3b7975d6c11 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\91\\0e297e0f53483455d2aa432887c3b7975d6c11'
-[OK] travel-explorer-spa\src\components\PackageForm.vue
+[OK] travel-agency-api\routes\packageRoutes.js
+[OK] travel-explorer-spa\src\views\Home.vue
+[ERROR] travel-explorer-spa\.git\objects\01\433bca2ac76590c48fabfee8d69d7b223f48bb -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\01\\433bca2ac76590c48fabfee8d69d7b223f48bb'
+[OK] travel-explorer-spa\package-lock.json
+[ERROR] travel-explorer-spa\.git\objects\59\1a0312d9dac2a6f0e766b2a8f9151d62decd94 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\59\\1a0312d9dac2a6f0e766b2a8f9151d62decd94'
+[OK] travel-explorer-spa\.git\hooks\pre-merge-commit.sample
+[OK] travel-explorer-spa\.git\hooks\prepare-commit-msg.sample
+[OK] travel-explorer-spa\.git\hooks\post-commit
+[OK] travel-explorer-spa\.git\hooks\sendemail-validate.sample
+[OK] travel-explorer-spa\src\assets\travel-bg.jpg
+[OK] travel-agency-api\server.js
+[OK] travel-explorer-spa\.git\HEAD
+[ERROR] travel-explorer-spa\.git\objects\87\9051a29739fdfb17ae82ed23b53fac251c2b7e -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\87\\9051a29739fdfb17ae82ed23b53fac251c2b7e'
+[ERROR] travel-explorer-spa\.git\objects\f3\d2503fc2a44b5053b0837ebea6e87a2d339a43 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\f3\\d2503fc2a44b5053b0837ebea6e87a2d339a43'
+[OK] travel-explorer-spa\src\assets\upload\paris.jpg
+[OK] travel-explorer-spa\src\assets\logo.png
+[OK] travel-explorer-spa\.git\hooks\applypatch-msg.sample
+[OK] travel-explorer-spa\.git\hooks\pre-commit.sample
 [OK] travel-explorer-spa\.git\hooks\post-receive
+[ERROR] travel-explorer-spa\.git\objects\23\319eff00dafd8eb71fea798d68aecda9e0fd22 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\23\\319eff00dafd8eb71fea798d68aecda9e0fd22'
+[OK] travel-explorer-spa\src\main.js
+[ERROR] travel-explorer-spa\.git\objects\91\0e297e0f53483455d2aa432887c3b7975d6c11 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\91\\0e297e0f53483455d2aa432887c3b7975d6c11'
+[OK] travel-explorer-spa\.git\hooks\pre-push.sample
+[OK] travel-explorer-spa\.git\hooks\push-to-checkout.sample
+[OK] travel-explorer-spa\.git\hooks\post-applypatch
+[OK] travel-explorer-spa\src\assets\images\newyork.jpg
+[OK] travel-explorer-spa\public\index.html
+[OK] travel-explorer-spa\src\router\index.js
+[OK] travel-explorer-spa\.git\hooks\pre-applypatch
+[OK] travel-explorer-spa\.git\hooks\post-update
+[OK] travel-agency-api\app.js
+[OK] travel-explorer-spa\public\upload\paris.jpg
+[OK] travel-explorer-spa\src\assets\images\dress.jpg
+[ERROR] travel-explorer-spa\.git\objects\64\afaea7e0f99e8262f35bd394af63c86e2c04b3 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\64\\afaea7e0f99e8262f35bd394af63c86e2c04b3'
+[OK] travel-explorer-spa\.git\hooks\pre-auto-gc
+[OK] travel-explorer-spa\src\App.vue
+[OK] travel-explorer-spa\.git\hooks\applypatch-msg
+[OK] travel-explorer-spa\src\assets\upload\dress.jpg
+[ERROR] travel-explorer-spa\.git\objects\40\3adbc1e527906a4aa59558cd582c20bcd1d738 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\40\\3adbc1e527906a4aa59558cd582c20bcd1d738'
+[OK] travel-explorer-spa\src\components\PackageForm.vue
+[OK] travel-explorer-spa\.git\description
+[OK] travel-explorer-spa\.git\logs\HEAD
+[OK] travel-explorer-spa\.git\hooks\fsmonitor-watchman.sample
 [OK] travel-explorer-spa\babel.config.js
+[OK] travel-explorer-spa\.git\hooks\update.sample
+[OK] travel-explorer-spa\postcss.config.js
+[OK] travel-explorer-spa\.git\info\exclude
+[OK] travel-explorer-spa\vue.config.js
+[OK] travel-explorer-spa\package.json
+[OK] travel-explorer-spa\.git\hooks\prepare-commit-msg
+[OK] travel-explorer-spa\.gitignore
+[OK] travel-explorer-spa\.git\hooks\commit-msg
+[OK] travel-explorer-spa\src\assets\main.css
+[ERROR] travel-explorer-spa\.git\objects\d7\d3a21e2cffd289f100ffd372db309e626c058f -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\d7\\d3a21e2cffd289f100ffd372db309e626c058f'
+[OK] travel-explorer-spa\.git\logs\refs\heads\master
+[ERROR] travel-explorer-spa\.git\objects\fe\6f7f4933840afcef6442eb0046a513bb90228c -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\fe\\6f7f4933840afcef6442eb0046a513bb90228c'
+[OK] travel-explorer-spa\.git\hooks\pre-rebase.sample
+[OK] travel-agency-api\dbconfig.js
+[ERROR] travel-explorer-spa\.git\objects\65\10c6a45035b6573151ff6196e4bdea78deb75d -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\65\\10c6a45035b6573151ff6196e4bdea78deb75d'
+[OK] travel-explorer-spa\tailwind.config.js
+[OK] travel-explorer-spa\public\favicon.ico
+[OK] travel-explorer-spa\src\assets\images\bali.png
+[OK] travel-explorer-spa\.git\hooks\pre-applypatch.sample
+[OK] travel-explorer-spa\.git\config
+[OK] travel-explorer-spa\src\components\PackageList.vue
+[OK] travel-explorer-spa\.git\hooks\pre-push
+[OK] travel-explorer-spa\src\views\Packages.vue
+[OK] travel-explorer-spa\src\assets\tailwind.css
+[OK] travel-agency-api\.env
+[OK] travel-explorer-spa\src\components\TravelLoader.vue
+[OK] travel-explorer-spa\.git\index
+[OK] travel-agency-api\package-lock.json
+[OK] travel-agency-api\package.json
+[OK] travel-explorer-spa\.git\hooks\sendemail-validate
+[ERROR] travel-explorer-spa\.git\objects\4a\afc5f6ed86fe6dff8d4b6be59290cbdeb61656 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\4a\\afc5f6ed86fe6dff8d4b6be59290cbdeb61656'
+[OK] travel-explorer-spa\.git\hooks\push-to-checkout
+[ERROR] travel-explorer-spa\.git\objects\df\36fcfb72584e00488330b560ebcf34a41c64c2 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\df\\36fcfb72584e00488330b560ebcf34a41c64c2'
+[OK] travel-explorer-spa\README.md
+[ERROR] travel-explorer-spa\.git\objects\e9\558405fdcc02f12d757acb308e02937a7444f1 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\e9\\558405fdcc02f12d757acb308e02937a7444f1'
+[ERROR] travel-explorer-spa\.git\objects\21\f573ae981d131dcb608c4bbbb13627b8f44d65 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\21\\f573ae981d131dcb608c4bbbb13627b8f44d65'
+[OK] travel-explorer-spa\.git\hooks\post-update.sample
+[OK] travel-explorer-spa\.git\FETCH_HEAD
 [OK] travel-explorer-spa\.git\hooks\pre-receive
 [ERROR] travel-explorer-spa\.git\objects\cf\db15bd0416ede7f5a9922bab61d6d01985ecf7 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\cf\\db15bd0416ede7f5a9922bab61d6d01985ecf7'
-[OK] travel-explorer-spa\.git\hooks\update.sample
-[OK] travel-explorer-spa\src\components\PackageList.vue
-[OK] travel-explorer-spa\.git\hooks\post-update.sample
-[OK] travel-explorer-spa\.git\hooks\push-to-checkout.sample
-[ERROR] travel-explorer-spa\.git\objects\40\3adbc1e527906a4aa59558cd582c20bcd1d738 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\40\\3adbc1e527906a4aa59558cd582c20bcd1d738'
-[OK] travel-explorer-spa\.git\hooks\pre-push
-[OK] travel-explorer-spa\.git\hooks\pre-applypatch
-[OK] travel-explorer-spa\.git\FETCH_HEAD
-[ERROR] travel-explorer-spa\.git\objects\64\afaea7e0f99e8262f35bd394af63c86e2c04b3 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\64\\afaea7e0f99e8262f35bd394af63c86e2c04b3'
-[OK] travel-explorer-spa\src\main.js
-[OK] travel-explorer-spa\.git\refs\heads\master
-[ERROR] travel-explorer-spa\.git\objects\87\9051a29739fdfb17ae82ed23b53fac251c2b7e -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\87\\9051a29739fdfb17ae82ed23b53fac251c2b7e'
-[OK] travel-explorer-spa\.git\hooks\pre-commit.sample
-[OK] travel-explorer-spa\.git\hooks\applypatch-msg
-[OK] travel-explorer-spa\public\favicon.ico
-[OK] travel-explorer-spa\.git\hooks\post-merge
-[OK] travel-explorer-spa\src\assets\upload\paris.jpg
-[OK] travel-explorer-spa\.git\hooks\prepare-commit-msg.sample
-[OK] travel-explorer-spa\public\upload\paris.jpg
-[ERROR] travel-explorer-spa\.git\objects\d7\d3a21e2cffd289f100ffd372db309e626c058f -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\d7\\d3a21e2cffd289f100ffd372db309e626c058f'
-[OK] travel-explorer-spa\.gitignore
-[OK] travel-explorer-spa\package-lock.json
-[OK] travel-explorer-spa\vue.config.js
-[OK] travel-explorer-spa\.git\HEAD
-[OK] travel-explorer-spa\.git\hooks\sendemail-validate
-[OK] travel-explorer-spa\.git\hooks\fsmonitor-watchman.sample
-[OK] travel-explorer-spa\.git\hooks\push-to-checkout
-[OK] travel-explorer-spa\src\assets\logo.png
-[OK] travel-explorer-spa\.git\hooks\update
-[OK] travel-explorer-spa\.git\hooks\commit-msg
-[ERROR] travel-explorer-spa\.git\objects\01\433bca2ac76590c48fabfee8d69d7b223f48bb -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\01\\433bca2ac76590c48fabfee8d69d7b223f48bb'
-[OK] travel-explorer-spa\src\components\TravelLoader.vue
-[OK] travel-explorer-spa\.git\hooks\pre-merge-commit.sample
-[OK] travel-explorer-spa\src\views\About.vue
-[OK] travel-explorer-spa\src\assets\images\dress.jpg
-[OK] travel-explorer-spa\.git\logs\refs\heads\master
-[OK] travel-explorer-spa\.git\hooks\pre-push.sample
-[OK] travel-explorer-spa\.git\hooks\pre-rebase
-[OK] travel-explorer-spa\tailwind.config.js
-[OK] travel-explorer-spa\.git\COMMIT_EDITMSG
-[OK] travel-explorer-spa\public\index.html
-[ERROR] travel-explorer-spa\.git\objects\df\36fcfb72584e00488330b560ebcf34a41c64c2 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\df\\36fcfb72584e00488330b560ebcf34a41c64c2'
-[OK] travel-explorer-spa\src\assets\images\newyork.jpg
-[OK] travel-explorer-spa\src\App.vue
-[OK] travel-explorer-spa\src\views\Packages.vue
-[OK] travel-explorer-spa\.git\hooks\post-rewrite
-[OK] travel-explorer-spa\travel-explorer-spa.zip
-[OK] travel-explorer-spa\.git\description
-[OK] travel-explorer-spa\.git\hooks\sendemail-validate.sample
-[ERROR] travel-explorer-spa\.git\objects\f3\d2503fc2a44b5053b0837ebea6e87a2d339a43 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\f3\\d2503fc2a44b5053b0837ebea6e87a2d339a43'
-[ERROR] travel-explorer-spa\.git\objects\4a\afc5f6ed86fe6dff8d4b6be59290cbdeb61656 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\4a\\afc5f6ed86fe6dff8d4b6be59290cbdeb61656'
-[OK] travel-explorer-spa\.git\hooks\commit-msg.sample
-[OK] travel-explorer-spa\.git\hooks\post-commit
-[OK] travel-explorer-spa\.git\hooks\post-checkout
-[OK] travel-explorer-spa\src\assets\tailwind.css
-[ERROR] travel-explorer-spa\.git\objects\65\10c6a45035b6573151ff6196e4bdea78deb75d -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\65\\10c6a45035b6573151ff6196e4bdea78deb75d'
-[ERROR] travel-explorer-spa\.git\objects\3e\5a13962197105f2078d2a224cc57dfa09b4893 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\3e\\5a13962197105f2078d2a224cc57dfa09b4893'
-[OK] travel-explorer-spa\postcss.config.js
-[OK] travel-explorer-spa\src\views\Home.vue
 [OK] travel-explorer-spa\.git\hooks\pre-commit
-[OK] travel-explorer-spa\.git\info\exclude
-[ERROR] travel-explorer-spa\.git\objects\59\1a0312d9dac2a6f0e766b2a8f9151d62decd94 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\59\\1a0312d9dac2a6f0e766b2a8f9151d62decd94'
-[OK] travel-explorer-spa\.git\hooks\post-applypatch
-[OK] travel-explorer-spa\.git\hooks\pre-auto-gc
-[OK] travel-explorer-spa\src.zip
-[ERROR] travel-explorer-spa\.git\objects\21\f573ae981d131dcb608c4bbbb13627b8f44d65 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\21\\f573ae981d131dcb608c4bbbb13627b8f44d65'
-[OK] travel-explorer-spa\README.md
-[OK] travel-explorer-spa\src\assets\images\travel-bg.jpg
-[OK] travel-explorer-spa\.git\hooks\pre-rebase.sample
-[OK] travel-explorer-spa\src\router\index.js
-[OK] travel-explorer-spa\.git\hooks\prepare-commit-msg
+[OK] travel-explorer-spa\.git\hooks\post-checkout
+[ERROR] travel-explorer-spa\.git\objects\3e\5a13962197105f2078d2a224cc57dfa09b4893 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\3e\\5a13962197105f2078d2a224cc57dfa09b4893'
 [OK] travel-explorer-spa\jsconfig.json
-[ERROR] travel-explorer-spa\.git\objects\fe\6f7f4933840afcef6442eb0046a513bb90228c -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\fe\\6f7f4933840afcef6442eb0046a513bb90228c'
-[OK] travel-explorer-spa\src\assets\images\bali.png
+[OK] travel-explorer-spa\.git\hooks\pre-rebase
+[OK] travel-explorer-spa\.git\hooks\post-merge
+[OK] travel-explorer-spa\.git\refs\heads\master
+[OK] travel-explorer-spa\.git\COMMIT_EDITMSG
+[OK] travel-explorer-spa\src\assets\images\travel-bg.jpg
+[OK] travel-explorer-spa\.git\hooks\commit-msg.sample
+[ERROR] travel-explorer-spa\.git\objects\99\bf960e214e73e5513e054ac34c331b6d4b1a46 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\99\\bf960e214e73e5513e054ac34c331b6d4b1a46'
+[OK] travel-explorer-spa\src\components\QueryForm.vue
+[OK] travel-explorer-spa\.git\hooks\post-rewrite
+[OK] travel-explorer-spa\.git\hooks\pre-receive.sample
 [ERROR] travel-explorer-spa\.git\objects\4c\3373726979dfbbbf833a2d46527dc3a8f27de8 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\4c\\3373726979dfbbbf833a2d46527dc3a8f27de8'
-[OK] travel-explorer-spa\.git\index
-[OK] travel-explorer-spa\.git\logs\HEAD
-[OK] travel-explorer-spa\src\assets\travel-bg.jpg
-[OK] travel-explorer-spa\.git\hooks\post-update
-[OK] travel-explorer-spa\.git\hooks\applypatch-msg.sample
-[ERROR] travel-explorer-spa\.git\objects\23\319eff00dafd8eb71fea798d68aecda9e0fd22 -> [Errno 13] Permission denied: 'D:/Test Folder\\travel-explorer-spa\\.git\\objects\\23\\319eff00dafd8eb71fea798d68aecda9e0fd22'
-[OK] travel-explorer-spa\package.json
+[OK] travel-explorer-spa\.git\hooks\update
+[OK] travel-explorer-spa\src\views\About.vue
