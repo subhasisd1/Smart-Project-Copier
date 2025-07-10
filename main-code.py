@@ -245,12 +245,18 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
 
         name = os.path.basename(path)
         try:
-            size = os.path.getsize(path) if os.path.isfile(path) else (
-                self.get_folder_size_excluding(path) if is_root else 0
-            )
+            if os.path.isfile(path):
+                size = os.path.getsize(path)
+                date = datetime.fromtimestamp(os.path.getmtime(path)).strftime("%Y-%m-%d %H:%M")
+            elif os.path.isdir(path):
+                size = self.get_folder_size_excluding(path)
+                date = datetime.fromtimestamp(os.path.getmtime(path)).strftime("%Y-%m-%d %H:%M")
+            else:
+                size = 0
+                date = "?"
             size_str = self.format_size(size)
-            date = datetime.fromtimestamp(os.path.getmtime(path)).strftime("%Y-%m-%d %H:%M")
-        except:
+        except Exception as e:
+            print(f"Error reading size/date for {path}: {e}")
             size_str = "?"
             date = "?"
 
@@ -639,8 +645,22 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
 
     def update_total_selected_size(self):
         total = 0
+
         for node in self.checked_items:
             path = self.tree_nodes[node]
+
+            # Skip if any parent is already counted
+            parent = self.tree.parent(node)
+            skip = False
+            while parent:
+                if parent in self.checked_items:
+                    skip = True
+                    break
+                parent = self.tree.parent(parent)
+
+            if skip:
+                continue
+
             try:
                 if os.path.isfile(path):
                     total += os.path.getsize(path)
@@ -648,8 +668,25 @@ class FileCopierApp(TkinterDnD.Tk):  # ✅ Only use TkinterDnD.Tk
                     total += self.get_folder_size_excluding(path)
             except:
                 continue
+
         size_str = self.format_size(total)
         self.total_size_label.config(text=f"Total Size: {size_str}")
+    
+    def get_folder_size_excluding(self,path, exclude_dirs=None):
+        total_size = 0
+        exclude_dirs = exclude_dirs or self.exclude_patterns
+
+        for dirpath, dirnames, filenames in os.walk(path):
+            # Skip excluded directories
+            if any(excluded in dirpath for excluded in exclude_dirs):
+                continue
+            for f in filenames:
+                try:
+                    fp = os.path.join(dirpath, f)
+                    total_size += os.path.getsize(fp)
+                except:
+                    pass
+        return total_size
 
 
 def choose_multiple_folders():
@@ -659,21 +696,7 @@ def choose_multiple_folders():
         folder_paths = list({os.path.dirname(p) for p in paths})
         return folder_paths
 
-def get_folder_size_excluding(path, exclude_dirs=None):
-    total_size = 0
-    exclude_dirs = exclude_dirs or []
 
-    for dirpath, dirnames, filenames in os.walk(path):
-        # Skip excluded directories
-        if any(excluded in dirpath for excluded in exclude_dirs):
-            continue
-        for f in filenames:
-            try:
-                fp = os.path.join(dirpath, f)
-                total_size += os.path.getsize(fp)
-            except:
-                pass
-    return total_size
 
 if __name__ == "__main__":
     app = FileCopierApp()
